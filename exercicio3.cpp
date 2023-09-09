@@ -1,123 +1,30 @@
-/*Exercício 3:
-Faça uma função que receba (por referência) 4 variáveis float e ordena (crescente) os valores destas variáveis. Depois faça o programa principal para testar a sua função. */
-
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include<iostream>
+#include<algorithm>
 
 using namespace std;
 
-void preencherRandom(float &num1, float &num2, float &num3, float &num4);
+void ordena(float &, float &, float &, float &);
 
-void ordenaCrescente(float &num1, float &num2, float &num3, float &num4);
+int main(){
 
-int main()
-{
-    srand(time(nullptr));
+    float f1 = 4 , f2 = 2.7 , f3 = 5.5 , f4 = 1;
 
-    float a, b, c, d;
 
-    preencherRandom(a, b, c, d);
+    ordena(f1,f2,f3,f4);
 
-    ordenaCrescente(a, b, c, d);
+    return 0;
 }
 
-void preencherRandom(float &num1, float &num2, float &num3, float &num4){
-
-    num1 = rand() % 1000;
-    num2 = rand() % 1000;
-    num3 = rand() % 1000;
-    num4 = rand() % 1000;
+void ordena(float &f1, float &f2, float &f3, float &f4){
+    float vetor[4];
+    vetor[0] = f1;
+    vetor[1] = f2;
+    vetor[2] = f3;
+    vetor[3] = f4;
+    sort(vetor,vetor+4);
+    f1 = vetor[0];
+    f2 = vetor[1];
+    f3 = vetor[2];
+    f4 = vetor[3];
 }
 
-void ordenaCrescente(float &num1, float &num2, float &num3, float &num4)
-{
-    float aux = 0;
-
-    if (num1 < num2)
-    {
-        aux = num1;
-        num1 = num2;
-        num2 = aux;
-    }
-
-    if (num1 < num3)
-    {
-        aux = num1;
-        num1 = num3;
-        num2 = aux;
-    }
-
-    if (num1 < num4)
-    {
-        aux = num1;
-        num1 = num4;
-        num4 = aux;
-    }
-
-    if(num2 < num1){
-
-        aux = num2;
-        num2 = num1;
-        num1 = aux;
-    }
-
-    if(num2 < num3){
-
-        aux = num2;
-        num2 = num3;
-        num3 = aux;
-    }
-
-    if(num2 < num4){
-
-        aux = num2;
-        num2 = num4;
-        num4 = aux;
-    }
-
-    if(num3 < num1){
-
-        aux = num3;
-        num3 = num1;
-        num1 = aux;
-    }
-
-    if(num3 < num2){
-
-        aux = num3;
-        num3 = num2;
-        num2 = aux;
-    }
-
-    if(num3 < num4){
-
-        aux = num3;
-        num3 = num4;
-        num4 = aux;
-    }
-
-    if(num4 < num1){
-
-        aux = num4;
-        num4 = num1;
-        num1 = aux;
-    }
-
-    if(num4 < num2){
-
-        aux = num4;
-        num4 = num2;
-        num2 = aux;
-    }
-
-    if(num4 < num3){
-
-        aux = num4;
-        num4 = num3;
-        num3 = aux;
-    }
-
-    cout << "\n" << num1 << ", " << num2 << ", " << num3 << ", " << num4 << endl;
-    cout << endl;
-}

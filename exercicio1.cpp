@@ -37,7 +37,6 @@ int main()
 
 void maxmin(int vetor[], int n, int &maximo, int &minimo)
 {
-    minimo = vetor[0];
 
     for (int i = 0; i < n; i++)
     {

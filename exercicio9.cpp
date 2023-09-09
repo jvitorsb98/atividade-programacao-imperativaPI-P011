@@ -1,28 +1,24 @@
-/*Exercício 9:
-Faça uma função para calcular o valor de S, dado por:
-Protótipo da função: float calc_serie(int N);*/
+#include<iostream>
 
-#include <iostream>
-#include <cmath>
 using namespace std;
 
-float calc_serie(int N);
+float calc_serie(int n);
 
-int main()
-{
-    float s;
-    cout << "\nDigite o valor de N: ";
-    cin >> s;
+int main(){
 
-    cout << "\nO valor de S é: " << calc_serie(s) << endl;
+    int n = 2;
+
+    cout << calc_serie(n) << endl;
+
+    return 0;
 }
 
-float calc_serie(int N)
-{
-    float S = 0;
-    for (int i = 1; i <= N; i++)
-    {
-        S += (i / pow(2, i));
+float calc_serie(int n){
+    float somatorio = 0 ;
+
+    for(int i = 1; i <= n ; i++){
+        somatorio += (float)(i)/(n+1-i);
     }
-    return S;
+    return somatorio;
 }
+
